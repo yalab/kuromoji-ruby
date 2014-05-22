@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = Kuromoji::VERSION
   spec.authors       = ["yalab"]
   spec.email         = ["rudeboyjet@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.summary       = "A ruby wrapper for the Kuromoji Japanese morphological analyzer."
+  spec.description   = "kuromoji provides ruby API for Kuromoji(http://www.atilika.org/) Japanese morphological analyzer using rjb."
+  spec.homepage      = "https://github.com/yalab/kuromoji-ruby"
+  spec.license       = "Apache License, Version 2.0"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
