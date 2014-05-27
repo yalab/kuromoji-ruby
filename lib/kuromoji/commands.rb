@@ -11,17 +11,18 @@ module Kuromoji
 
     def initialize(args = [], options = {}, config = {})
       super(args, options, config)
-      @sentence = STDIN.read
     end
 
-    desc "hello NAME", "say hello to NAME"
+    desc "all_features", "echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -a"
     def all_features
-      puts Yajl::Encoder.encode(Kuromoji.tokenize(@sentence))
+      sentence = STDIN.read
+      puts Yajl::Encoder.encode(Kuromoji.tokenize(sentence))
     end
 
-    desc "hello NAME", "say hello to NAME"
+    desc "reading", "echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -r "
     def reading
-      puts Yajl::Encoder.encode(Kuromoji.reading(@sentence))
+      sentence = STDIN.read
+      puts Yajl::Encoder.encode(Kuromoji.reading(sentence))
     end
 
   end
