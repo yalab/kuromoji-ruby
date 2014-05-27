@@ -1,4 +1,5 @@
 require "kuromoji/version"
+require 'kuromoji/commands'
 require 'rjb'
 
 module Kuromoji
