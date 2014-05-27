@@ -41,6 +41,16 @@ Kuromoji.tokenize("あそこにいるのチャウチャウちゃうんちゃう"
 => {"吉田"=>"ヨシダ", "篤"=>"アツシ"}
 ```
 
+command line interface.
+
+```bash
+Commands:
+  kuromoji all_features    # echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -a
+  kuromoji help [COMMAND]  # Describe available commands or one specific command
+  kuromoji reading         # echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -r
+```
+
+
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/kuromoji/fork )
