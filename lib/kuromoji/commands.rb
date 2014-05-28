@@ -8,9 +8,16 @@ module Kuromoji
 
     map '-a' => :all_features
     map '-r' => :reading
+    map '-t' => :tokenize
 
     def initialize(args = [], options = {}, config = {})
       super(args, options, config)
+    end
+
+    desc "tokenize", "echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -t"
+    def tokenize
+      sentence = STDIN.read
+      puts Yajl::Encoder.encode(Kuromoji.tokenize_with_hash(sentence))
     end
 
     desc "all_features", "echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -a"
