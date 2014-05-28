@@ -1,4 +1,4 @@
-require "kuromoji/version"
+require 'kuromoji/version'
 require 'kuromoji/commands'
 require 'rjb'
 
@@ -17,9 +17,9 @@ class Rjb::Rjb_JavaProxy
 end
 
 module Kuromoji
-  jar = File.expand_path("../../vendor/kuromoji-0.7.7/lib/kuromoji-0.7.7.jar", __FILE__)
-  Rjb::load(jar)
-  Tokenizer = Rjb::import('org.atilika.kuromoji.Tokenizer').builder.build
+  jar = File.expand_path('../../vendor/kuromoji-0.7.7/lib/kuromoji-0.7.7.jar', __FILE__)
+  Rjb.load(jar)
+  Tokenizer = Rjb.import('org.atilika.kuromoji.Tokenizer').builder.build
 
   def self.tokenize_with_hash(sentence)
     list = Tokenizer.tokenize(sentence)
