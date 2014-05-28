@@ -37,9 +37,10 @@ module Kuromoji
     end
 
     def tokenize_with_hash(sentence)
+      result = []
+      return result if sentence.nil?
       list = @tokenizer.tokenize(sentence)
       iterator = list.iterator
-      result = []
       while iterator.has_next
         item = iterator.next
         result << item.to_kuromoji_hash
@@ -48,9 +49,10 @@ module Kuromoji
     end
 
     def process(method, sentence)
+      tokenized = {}
+      return tokenized if sentence.nil?
       list = @tokenizer.tokenize(sentence)
       iterator = list.iterator
-      tokenized = {}
       while iterator.has_next
         item = iterator.next
         tokenized[item.surface_form] = item.send(method)

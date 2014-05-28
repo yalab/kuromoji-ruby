@@ -34,4 +34,20 @@ class KuromojiTest < Minitest::Test
       assert_equal token['surface_form'], check[i]
     end
   end
+
+  def test_nil
+    tokenized = @no_dictionary.tokenize_with_hash(nil)
+    assert_equal tokenized, []
+
+    tokenized = @no_dictionary.reading(nil)
+    assert_equal tokenized, {}
+  end
+
+  def test_empty
+    tokenized = @use_dictionary.tokenize_with_hash('')
+    assert_equal tokenized, []
+
+    tokenized = @no_dictionary.reading('')
+    assert_equal tokenized, {}
+  end
 end
