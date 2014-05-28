@@ -2,11 +2,13 @@
 
 A ruby wrapper for the Kuromoji Japanese morphological analyzer.
 
+require JAVA
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'kuromoji'
+    gem 'kuromoji-ruby'
 
 And then execute:
 
@@ -14,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install kuromoji
+    $ gem install kuromoji-ruby
 
 ## Usage
 
@@ -51,12 +53,186 @@ Commands:
   kuromoji tokenize        # echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -t
 ```
 
+## Exsample
+
 output json format
 
 ```bash
-echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -t
+$ echo '関西国際空港は、大阪府大阪市の南西38kmにまたがる会社管理空港である' | kuromoji -t | jq .
 
-[{"parts_of_speech":"名詞,固有名詞,組織,*","reading":"カンサイコクサイクウコウ","base_form":"関西国際空港","surface_form":"関西国際空港","position":0,"is_known":true,"is_user":false},{"parts_of_speech":"助詞,係助詞,*,*","reading":"ハ","base_form":"は","surface_form":"は","position":6,"is_known":true,"is_user":false},{"parts_of_speech":"記号,読点,*,*","reading":"、","base_form":"、","surface_form":"、","position":7,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,固有名詞,地域,一般","reading":"オオサカ","base_form":"大阪","surface_form":"大阪","position":8,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,接尾,地域,*","reading":"フ","base_form":"府","surface_form":"府","position":10,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,固有名詞,地域,一般","reading":"オオサカ","base_form":"大阪","surface_form":"大阪","position":11,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,接尾,地域,*","reading":"シ","base_form":"市","surface_form":"市","position":13,"is_known":true,"is_user":false},{"parts_of_speech":"助詞,連体化,*,*","reading":"ノ","base_form":"の","surface_form":"の","position":14,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,一般,*,*","reading":"ナンセイ","base_form":"南西","surface_form":"南西","position":15,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,数,*,*","reading":null,"base_form":null,"surface_form":"38","position":17,"is_known":false,"is_user":false},{"parts_of_speech":"名詞,一般,*,*","reading":null,"base_form":null,"surface_form":"km","position":19,"is_known":false,"is_user":false},{"parts_of_speech":"助詞,格助詞,一般,*","reading":"ニ","base_form":"に","surface_form":"に","position":21,"is_known":true,"is_user":false},{"parts_of_speech":"動詞,自立,*,*","reading":"マタガル","base_form":"またがる","surface_form":"またがる","position":22,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,一般,*,*","reading":"カイシャ","base_form":"会社","surface_form":"会社","position":26,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,サ変接続,*,*","reading":"カンリ","base_form":"管理","surface_form":"管理","position":28,"is_known":true,"is_user":false},{"parts_of_speech":"名詞,一般,*,*","reading":"クウコウ","base_form":"空港","surface_form":"空港","position":30,"is_known":true,"is_user":false},{"parts_of_speech":"助動詞,*,*,*","reading":"デ","base_form":"だ","surface_form":"で","position":32,"is_known":true,"is_user":false},{"parts_of_speech":"助動詞,*,*,*","reading":"アル","base_form":"ある","surface_form":"ある","position":33,"is_known":true,"is_user":false},{"parts_of_speech":"記号,空白,*,*","reading":null,"base_form":null,"surface_form":"\n","position":35,"is_known":false,"is_user":false}]
+#[
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 0,
+#    "surface_form": "関西国際空港",
+#    "base_form": "関西国際空港",
+#    "reading": "カンサイコクサイクウコウ",
+#    "parts_of_speech": "名詞,固有名詞,組織,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 6,
+#    "surface_form": "は",
+#    "base_form": "は",
+#    "reading": "ハ",
+#    "parts_of_speech": "助詞,係助詞,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 7,
+#    "surface_form": "、",
+#    "base_form": "、",
+#    "reading": "、",
+#    "parts_of_speech": "記号,読点,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 8,
+#    "surface_form": "大阪",
+#    "base_form": "大阪",
+#    "reading": "オオサカ",
+#    "parts_of_speech": "名詞,固有名詞,地域,一般"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 10,
+#    "surface_form": "府",
+#    "base_form": "府",
+#    "reading": "フ",
+#    "parts_of_speech": "名詞,接尾,地域,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 11,
+#    "surface_form": "大阪",
+#    "base_form": "大阪",
+#    "reading": "オオサカ",
+#    "parts_of_speech": "名詞,固有名詞,地域,一般"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 13,
+#    "surface_form": "市",
+#    "base_form": "市",
+#    "reading": "シ",
+#    "parts_of_speech": "名詞,接尾,地域,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 14,
+#    "surface_form": "の",
+#    "base_form": "の",
+#    "reading": "ノ",
+#    "parts_of_speech": "助詞,連体化,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 15,
+#    "surface_form": "南西",
+#    "base_form": "南西",
+#    "reading": "ナンセイ",
+#    "parts_of_speech": "名詞,一般,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": false,
+#    "position": 17,
+#    "surface_form": "38",
+#    "base_form": null,
+#    "reading": null,
+#    "parts_of_speech": "名詞,数,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": false,
+#    "position": 19,
+#    "surface_form": "km",
+#    "base_form": null,
+#    "reading": null,
+#    "parts_of_speech": "名詞,一般,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 21,
+#    "surface_form": "に",
+#    "base_form": "に",
+#    "reading": "ニ",
+#    "parts_of_speech": "助詞,格助詞,一般,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 22,
+#    "surface_form": "またがる",
+#    "base_form": "またがる",
+#    "reading": "マタガル",
+#    "parts_of_speech": "動詞,自立,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 26,
+#    "surface_form": "会社",
+#    "base_form": "会社",
+#    "reading": "カイシャ",
+#    "parts_of_speech": "名詞,一般,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 28,
+#    "surface_form": "管理",
+#    "base_form": "管理",
+#    "reading": "カンリ",
+#    "parts_of_speech": "名詞,サ変接続,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 30,
+#    "surface_form": "空港",
+#    "base_form": "空港",
+#    "reading": "クウコウ",
+#    "parts_of_speech": "名詞,一般,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 32,
+#    "surface_form": "で",
+#    "base_form": "だ",
+#    "reading": "デ",
+#    "parts_of_speech": "助動詞,*,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": true,
+#    "position": 33,
+#    "surface_form": "ある",
+#    "base_form": "ある",
+#    "reading": "アル",
+#    "parts_of_speech": "助動詞,*,*,*"
+#  },
+#  {
+#    "is_user": false,
+#    "is_known": false,
+#    "position": 35,
+#    "surface_form": "\n",
+#    "base_form": null,
+#    "reading": null,
+#    "parts_of_speech": "記号,空白,*,*"
+#  }
+#]
 ```
 
 

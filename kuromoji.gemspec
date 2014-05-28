@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "kuromoji-ruby"
   spec.version       = Kuromoji::VERSION
   spec.authors       = ["toyama0919"]
-  spec.email         = ["rudeboyjet@gmail.com"]
+  spec.email         = ["toyama0919@gmail.com"]
   spec.summary       = "A ruby wrapper for the Kuromoji Japanese morphological analyzer."
   spec.description   = "kuromoji provides ruby API for Kuromoji(http://www.atilika.org/) Japanese morphological analyzer using rjb."
   spec.homepage      = "https://github.com/toyama0919/kuromoji-ruby"
