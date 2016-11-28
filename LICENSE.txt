@@ -1,4 +1,4 @@
-Copyright (c) 2014 toyama0919
+Copyright (c) 2016 yalab toyama0919
 
 MIT License
 
