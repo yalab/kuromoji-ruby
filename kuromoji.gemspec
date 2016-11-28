@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'kuromoji/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "kuromoji-ruby"
+  spec.name          = "kuromoji"
   spec.version       = Kuromoji::VERSION
   spec.authors       = ["toyama0919"]
   spec.email         = ["toyama0919@gmail.com"]
